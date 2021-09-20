@@ -1,0 +1,62 @@
+root: true
+
+parser: '@typescript-eslint/parser'
+
+plugins:
+  - wdio
+  - "@typescript-eslint"
+
+extends:
+  - airbnb-base
+  - plugin:wdio/recommended
+  - plugin:@typescript-eslint/recommended
+
+globals:
+  assert: true
+  expect: true
+
+env:
+  es6: true
+  node: true
+
+rules:
+  comma-dangle:
+    - 'error'
+    - arrays: 'always-multiline'
+      objects: 'always-multiline'
+      imports: 'never'
+      exports: 'never'
+      functions: 'ignore'
+  global-require: 'off'
+  import/no-extraneous-dependencies: 0
+  import/prefer-default-export: 0
+  indent:
+    - 'error'
+    - 4
+    - SwitchCase: 1
+  max-len:
+    - 'error'
+    - 100
+    - ignorePattern: '\s*\/\^(.*)\$\/,$'
+  new-cap:
+    - 'error'
+    - newIsCap: true
+      capIsNewExceptions:
+        - 'Given'
+        - 'When'
+        - 'Then'
+  require-jsdoc:
+    - 'error'
+    - require:
+        FunctionDeclaration: true
+        MethodDefinition: true
+        ClassDeclaration: true
+  strict: 'off'
+  valid-jsdoc:
+    - 'error'
+    - requireReturn: false
+      matchDescription: '.+'
+  "@typescript-eslint/ban-ts-comment": 0
+  "@typescript-eslint/explicit-module-boundary-types": 0
+  import/no-unresolved: 0
+  import/extensions: 0
